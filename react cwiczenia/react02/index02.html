@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+    <style>
+        .klasa1 {
+            color: red;
+        }
+
+        body {
+            background-color: gray;
+        }
+
+        .box {
+            border: 2px solid black;
+            border-radius: 15px;
+            margin: 15px;
+            padding: 10px;
+            width: 155px;
+            float: left
+        }
+    </style>
+    <div id="react-app">
+
+    </div>
+
+    <script type="text/babel">
+
+
+
+        class Start extends React.Component {
+            render() {
+                return (
+                    <h1>React component</h1>
+                );
+            }
+        }
+
+
+
+        class Square extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    a: 0
+                };
+            }
+
+
+            render() {
+                return (
+
+                    <>
+                        <div class="box">
+                            <button onClick={this.onButtonClick}>click me</button>
+                            <h1>a = {this.state.a} </h1>
+                        </div>
+                    </>
+
+                );
+            }
+
+
+            onButtonClick = () => {
+                console.log(this)
+                console.log(this.state)
+                console.log(this.state.a)
+
+                console.log()
+                let helper = this.state.a + 1
+                if (helper == 4) {
+                    helper = 0
+                }
+                this.setState({
+                    a: helper
+                });
+
+
+            }
+        }
+
+
+
+
+        ReactDOM.render(
+            <>
+                <Square />
+                <Square />
+                <Square />
+            </>,
+            document.getElementById('react-app')
+        );
+
+    </script>
+
+</body>
+
+</html>

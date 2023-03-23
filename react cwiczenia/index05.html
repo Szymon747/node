@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+    <style>
+        .klasa1 {
+            color: red;
+        }
+    </style>
+    <div id="react-app">
+
+    </div>
+
+    <script type="text/babel">
+
+        // let tab = [
+        //     {
+        //         name: "bigos",
+        //         masa: "4kg",
+        //         smak: 4
+        //     },
+        //     {
+        //         name: "cebula",
+        //         masa: "0,1kg",
+        //         smak: 2
+        //     },
+        //     {
+        //         name: "kiełbasa",
+        //         masa: "0,5kg",
+        //         smak: 5
+        //     }
+
+        // ]
+
+        let tab = [
+            {
+                name: "bigos",
+                masa: "4kg",
+                smak: 4
+            },
+            {
+                name: "cebula",
+                masa: "0,1kg",
+                smak: 2
+            },
+            {
+                name: "kiełbasa",
+                masa: "0,5kg",
+                smak: 5
+            }
+
+        ]
+
+        class List extends React.Component {
+            render() {
+
+                let table = []
+                for (let i = 0; i < tab.length; i++) {
+                    console.log("idzie")
+
+                    let helper = <ListItem key={i} name={tab[i].name} masa={tab[i].masa} />
+
+                    table.push(helper)
+                }
+
+                return (
+                    <>
+                        {table}
+                    </>
+
+                );
+            }
+        }
+
+
+        class ListItem extends React.Component {
+            render() {
+                console.log(this.props)
+                return (
+                    <>
+                        {this.props.name} x {this.props.masa}
+                    </>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <List />,
+            document.getElementById('react-app')
+        );
+
+
+    </script>
+
+</body>
+
+</html>
